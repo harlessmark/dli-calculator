@@ -1,14 +1,13 @@
-import DataProvider from "./context/DataProvider";
+import Calculator from "./components/Calculator";
 import "./styles/app.scss";
 
-const App: React.FC = () => (
-  <div className="app">
-    <h1>DLI Calculator</h1>
-
-    <DataProvider>
-      <span>test</span>
-    </DataProvider>
-  </div>
-);
+const App: React.FC = () => {
+  return (
+    <div className="app">
+      <h1>DLI Calculator</h1>
+      <Calculator />
+    </div>
+  );
+};
 
 export default App;
