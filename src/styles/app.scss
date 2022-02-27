@@ -1,0 +1,12 @@
+@import "_reset.scss";
+@import "_variables.scss";
+@import "_fonts.scss";
+
+html {
+	background-color: $background;
+	padding: 1rem;
+}
+
+.app {
+	text-align: center;
+}
