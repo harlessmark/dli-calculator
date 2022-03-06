@@ -1,39 +1,35 @@
-type Data = {
-  title: string;
-  text: string;
-  default?: number;
-}[];
-
-const initialState: Data = [
+const instructions = [
   {
     title: "Calculate Average PPF",
-    text: "",
-    default: 0,
+    text: "test",
+    inputName: "ppf",
   },
   {
     title: "Calculate Growing Area",
-    text: "",
-    default: 0,
+    text: "testtest",
+    inputName: "growingArea",
   },
   {
     title: "Calculate Degradation",
-    text: "",
-    default: 0.8,
+    text: "testtesttest",
+    inputName: "degredation",
   },
   {
     title: "Your Plant's PPFD",
     text: "",
+    inputName: "",
   },
   {
     title: "Calculate Light Hours",
-    text: "",
-    default: 12,
+    text: "testtesttesttesttest",
+    inputName: "lightHours",
   },
   {
     // user can select plant's light requirements to compare with DLI
     title: "Your Plant's DLI",
-    text: "",
+    text: "This is your plant's DLI",
+    inputName: "",
   },
 ];
 
-export default initialState;
+export default instructions;
