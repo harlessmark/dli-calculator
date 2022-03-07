@@ -1,8 +1,8 @@
 const instructions = [
   {
-    title: "Calculate Average PPF",
+    title: "Calculate Average PPFD",
     text: "test",
-    inputName: "ppf",
+    inputName: "ppfd",
   },
   {
     title: "Calculate Growing Area",
