@@ -1,26 +1,32 @@
-import { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import UserInputContext from "../context/UserInputContext";
 import instructions from "../instructions";
 
-const Calculator: React.FC = () => {
+const Calculator: React.FC = (): JSX.Element => {
   const { userInputs, setUserInputs } = useContext(UserInputContext);
-  const [userInput, setUserInput] = useState(0);
+  const [value, setValue] = useState(0);
   const [step, setStep] = useState(0);
 
   // todo: add custom hook for localStorage
 
-  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserInput(Number(e.target.value));
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setValue(Number(e.target.value));
   };
 
-  const backHandler = () => {
+  const backHandler = (): void => {
     if (step > 0) {
       setStep(step - 1);
     }
   };
 
-  const nextHandler = () => {
+  const nextHandler = (): void => {
     if (step < instructions.length - 1) {
+      // update user input with value
+      // setUserInputs(userInputs[instructions[step].inputName]);
+
+      // why is value always 0?
+      console.log(value)
+
       setStep(step + 1);
     }
   };
@@ -30,12 +36,19 @@ const Calculator: React.FC = () => {
       <h2>{instructions[step].title}</h2>
       <p>{instructions[step].text}</p>
 
-      <div>
-        {instructions[step] && <input type="number" onChange={changeHandler} />}
-      </div>
+      <p>{instructions[step].inputName}</p>
+      <p>{value}</p>
+
+      <input
+        key={step}
+        type="number"
+        onChange={changeHandler}
+      />
 
       <button onClick={backHandler}>Back</button>
-      <button onClick={nextHandler}>Next</button>
+      {step < instructions.length - 1 && (
+        <button onClick={nextHandler}>Next</button>
+      )}
     </div>
   );
 };

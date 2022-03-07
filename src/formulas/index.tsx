@@ -2,14 +2,14 @@
  * Calculates the average PPFD measured over one square meter and in micromoles
  * per square meter per second (umol/m²/s).
  *
- * @param degredation {number} - The degredation of light measured as a percentage.
  * @param nums {array} - An array of the recorded PPF values measured as umol/second.
- * @returns {number} - The average PPFD with degredation.
+ * @returns {number} - The average PPF.
  */
-const calculateAveragePPFD = (degredation: number = 0.8, ...nums: number[]): number => {
-  const averagePPFD = nums.reduce((acc, curr) => acc + curr, 0) / nums.length
-  return averagePPFD * degredation;
-};
+const averagePPF = (...nums: number[]): number => (
+  nums.reduce((acc, curr) => acc + curr, 0) / nums.length
+);
+
+ // todo: @param degredation {number} - The degredation of light measured as a percentage.
 
 /**
  * Calculates the plant's growing area (canopy) in square meters.
@@ -53,4 +53,4 @@ const calculateDLI = (
   ppfd * lightHours * growingArea
 );
 
-export { calculateAveragePPFD, calculateGrowingArea, calculateDLI };
+export { averagePPF, calculateGrowingArea, calculateDLI };

@@ -6,7 +6,7 @@ import UserInputContext from "./context/UserInputContext";
 
 import "./styles/app.scss";
 
-const App: React.FC = () => {
+const App: React.FC = (): JSX.Element => {
   const [userInputs, setUserInputs] = useState(initialState);
 
   return (
